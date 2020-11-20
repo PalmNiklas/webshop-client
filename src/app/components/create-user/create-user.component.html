@@ -1,0 +1,21 @@
+<p-card header="Create an Account" styleClass="p-shadow-3 p-d-flex p-jc-center p-m-6 p-formgroup">
+  
+    <span class="p-float-label">
+        <input id="float-input-username" type="text" pInputText [(ngModel)]="username"> 
+        <label for="float-input-username">Username</label>
+    </span>
+    <span class="p-float-label p-my-4">
+        <input id="float-input-email" type="text" pInputText [(ngModel)]="email"> 
+        <label for="float-input-email">Email</label>
+    </span>
+    <span class="p-float-label">
+        <input id="float-input-password" type="password" pPassword [(ngModel)]="password"> 
+        <label for="float-input-password">Password</label>
+    </span>
+    <ng-template pTemplate="footer">
+        <p-button label="Submit" (click)="createAccount()" icon="pi pi-check"></p-button>
+        <p-button label="Cancel" (click)="clearForm()" icon="pi pi-times" styleClass="p-button-secondary p-ml-2" ></p-button>
+    </ng-template>
+</p-card>
+
+<p-messages class="ui-messages"></p-messages>

@@ -1,0 +1,17 @@
+
+<div class="card p-shadow-3 p-d-flex p-jc-center p-m-6">
+    
+    <div class="p-formgroup-inline p-mt-3">
+        <div class="p-field">
+            <label for="firstname" class="p-sr-only">Username</label>
+            <input id="firstname" type="text" pInputText placeholder="Username" [(ngModel)]="username"
+            required minlength="4" #name="ngModel">
+           
+        </div>
+        <div class="p-field">
+            <label for="lastname" class="p-sr-only">Password</label>
+            <input pPassword id="lastname" type="text"  placeholder="Password" [(ngModel)]="password"> 
+        </div>
+        <button pButton type="button" label="Submit" (click)="login()"></button>
+    </div>
+</div>

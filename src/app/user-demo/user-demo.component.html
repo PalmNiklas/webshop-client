@@ -1,0 +1,15 @@
+<p>user-demo works!</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>
+          {{user.username}}
+        </td>
+        <td>
+          {{user.email}}
+        </td>
+      </tr>
+</table>

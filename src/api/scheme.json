@@ -1,0 +1,854 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api Documentation",
+        "version": "1.0",
+        "title": "Api Documentation",
+        "termsOfService": "urn:tos",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "basic-error-controller",
+            "description": "Basic Error Controller"
+        },
+        {
+            "name": "user-controller",
+            "description": "User Controller"
+        }
+    ],
+    "paths": {
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "list",
+                "operationId": "listUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/UserRes"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "create",
+                "operationId": "createUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "user",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "head": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingHEAD",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingDELETE",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "options": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingOPTIONS",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "get",
+                "operationId": "getUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserRes"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/error": {
+            "get": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingGET",
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "head": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingHEAD",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingDELETE",
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "options": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingOPTIONS",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "basic-error-controller"
+                ],
+                "summary": "errorHtml",
+                "operationId": "errorHtmlUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModelAndView"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ModelAndView": {
+            "type": "object",
+            "properties": {
+                "empty": {
+                    "type": "boolean"
+                },
+                "model": {
+                    "type": "object"
+                },
+                "modelMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                },
+                "reference": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "ACCEPTED",
+                        "ALREADY_REPORTED",
+                        "BAD_GATEWAY",
+                        "BAD_REQUEST",
+                        "BANDWIDTH_LIMIT_EXCEEDED",
+                        "CHECKPOINT",
+                        "CONFLICT",
+                        "CONTINUE",
+                        "CREATED",
+                        "DESTINATION_LOCKED",
+                        "EXPECTATION_FAILED",
+                        "FAILED_DEPENDENCY",
+                        "FORBIDDEN",
+                        "FOUND",
+                        "GATEWAY_TIMEOUT",
+                        "GONE",
+                        "HTTP_VERSION_NOT_SUPPORTED",
+                        "IM_USED",
+                        "INSUFFICIENT_SPACE_ON_RESOURCE",
+                        "INSUFFICIENT_STORAGE",
+                        "INTERNAL_SERVER_ERROR",
+                        "I_AM_A_TEAPOT",
+                        "LENGTH_REQUIRED",
+                        "LOCKED",
+                        "LOOP_DETECTED",
+                        "METHOD_FAILURE",
+                        "METHOD_NOT_ALLOWED",
+                        "MOVED_PERMANENTLY",
+                        "MOVED_TEMPORARILY",
+                        "MULTIPLE_CHOICES",
+                        "MULTI_STATUS",
+                        "NETWORK_AUTHENTICATION_REQUIRED",
+                        "NON_AUTHORITATIVE_INFORMATION",
+                        "NOT_ACCEPTABLE",
+                        "NOT_EXTENDED",
+                        "NOT_FOUND",
+                        "NOT_IMPLEMENTED",
+                        "NOT_MODIFIED",
+                        "NO_CONTENT",
+                        "OK",
+                        "PARTIAL_CONTENT",
+                        "PAYLOAD_TOO_LARGE",
+                        "PAYMENT_REQUIRED",
+                        "PERMANENT_REDIRECT",
+                        "PRECONDITION_FAILED",
+                        "PRECONDITION_REQUIRED",
+                        "PROCESSING",
+                        "PROXY_AUTHENTICATION_REQUIRED",
+                        "REQUESTED_RANGE_NOT_SATISFIABLE",
+                        "REQUEST_ENTITY_TOO_LARGE",
+                        "REQUEST_HEADER_FIELDS_TOO_LARGE",
+                        "REQUEST_TIMEOUT",
+                        "REQUEST_URI_TOO_LONG",
+                        "RESET_CONTENT",
+                        "SEE_OTHER",
+                        "SERVICE_UNAVAILABLE",
+                        "SWITCHING_PROTOCOLS",
+                        "TEMPORARY_REDIRECT",
+                        "TOO_EARLY",
+                        "TOO_MANY_REQUESTS",
+                        "UNAUTHORIZED",
+                        "UNAVAILABLE_FOR_LEGAL_REASONS",
+                        "UNPROCESSABLE_ENTITY",
+                        "UNSUPPORTED_MEDIA_TYPE",
+                        "UPGRADE_REQUIRED",
+                        "URI_TOO_LONG",
+                        "USE_PROXY",
+                        "VARIANT_ALSO_NEGOTIATES"
+                    ]
+                },
+                "view": {
+                    "$ref": "#/definitions/View"
+                },
+                "viewName": {
+                    "type": "string"
+                }
+            },
+            "title": "ModelAndView"
+        },
+        "TimestampReq": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "hours": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "minutes": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "month": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "nanos": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "time": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "year": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "TimestampReq"
+        },
+        "TimestampRes": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "day": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "hours": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "minutes": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "month": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "nanos": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "time": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "timezoneOffset": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "year": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "TimestampRes"
+        },
+        "UserReq": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "createdAt": {
+                    "$ref": "#/definitions/TimestampReq"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "lastLogin": {
+                    "$ref": "#/definitions/TimestampReq"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "$ref": "#/definitions/TimestampReq"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "title": "UserReq"
+        },
+        "UserRes": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "createdAt": {
+                    "$ref": "#/definitions/TimestampRes"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "lastLogin": {
+                    "$ref": "#/definitions/TimestampRes"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "$ref": "#/definitions/TimestampRes"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "title": "UserRes"
+        },
+        "View": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "type": "string"
+                }
+            },
+            "title": "View"
+        }
+    }
+}
