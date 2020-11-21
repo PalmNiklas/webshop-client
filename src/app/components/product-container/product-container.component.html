@@ -1,0 +1,39 @@
+<p>product-container works!</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>
+          {{product.name}}
+        </td>
+        <td>
+          {{product.description}}
+        </td>
+        <td>
+          {{product.quantity}}
+        </td>
+        <td>
+          {{product.regularPrice}}
+        </td>
+      </tr>
+</table>
+
+<div class="p-grid  p-ai-center vertical-container">
+    <div class="p-col-2">
+        <span class="p-input-icon-left p-col-1">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Search" [(ngModel)]="searchString" />
+        </span>
+        
+    </div>
+    <div class="p-col-1">
+        <button pButton type="button" (click)="search()" label="Search" styleClass="p-button-sm"></button>
+        
+    </div>
+</div>
+
+

@@ -22,7 +22,6 @@ export class AuthenticationService {
     }
 
     login(user: User) {
-
         return this.userService.loginUsingPOST(user)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -34,6 +33,14 @@ export class AuthenticationService {
                     console.log(error)
                 }
             ))
+    }
+
+    isAuthorized(allowedRoles: number[]): boolean{
+        if (allowedRoles == null || allowedRoles.length === 0){
+            return true
+        }
+
+        return allowedRoles.includes(this.getCurrentUserRole());
     }
 
     getCurrentUserRole(){

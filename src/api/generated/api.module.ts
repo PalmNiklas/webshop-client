@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration';
 
 import { CategoryControllerService } from './services/category-controller.service';
+import { ProductControllerService } from './services/product-controller.service';
 import { UserControllerService } from './services/user-controller.service';
 
 /**
@@ -20,6 +21,7 @@ import { UserControllerService } from './services/user-controller.service';
   providers: [
     ApiConfiguration,
     CategoryControllerService,
+    ProductControllerService,
     UserControllerService
   ],
 })

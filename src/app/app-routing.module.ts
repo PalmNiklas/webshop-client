@@ -7,6 +7,10 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { UserDemoComponent } from './user-demo/user-demo.component';
 import {Role } from './enums/RoleEnum';
+import { ProductContainerComponent } from './components/product-container/product-container.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { LoggedInAuthGuard } from './auth/logged-in-auth.guard';
+import { AdminProductPageComponent } from './pages/admin-product-page/admin-product-page.component';
 
 const routes: Routes = [
   {
@@ -19,7 +23,8 @@ const routes: Routes = [
   },
   { 
     path: 'login', 
-    component: LoginFormComponent 
+    component: LoginFormComponent,
+    canActivate: [LoggedInAuthGuard] 
   },
   { 
     path: '', 
@@ -28,6 +33,30 @@ const routes: Routes = [
   { 
     path: 'create-account', 
     component: CreateUserComponent,
+  },
+  { 
+    path: 'products', 
+    component: ProductContainerComponent,
+    canActivate: [AuthGuard],
+    data:{
+      allowedRoles: [Role.Admin, Role.Customer]
+    }
+  },
+  { 
+    path: 'create-product', 
+    component: CreateProductComponent,
+    canActivate: [AuthGuard],
+    data:{
+      role: Role.Admin
+    }
+  },
+  { 
+    path: 'admin-product', 
+    component: AdminProductPageComponent,
+    canActivate: [AuthGuard],
+    data:{
+      role: Role.Admin
+    }
   },
   
 ];

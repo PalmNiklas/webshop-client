@@ -15,12 +15,18 @@ import {MenubarModule} from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast'
+import {DropdownModule} from 'primeng/dropdown';
 
 import {MessageService} from 'primeng/api';
 
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProductContainerComponent } from './components/product-container/product-container.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { AdminProductPageComponent } from './pages/admin-product-page/admin-product-page.component';
 
 
 @NgModule({
@@ -31,6 +37,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     LandingPageComponent,
     CreateUserComponent,
     NavBarComponent,
+    ProductContainerComponent,
+    CreateProductComponent,
+    CreateCategoryComponent,
+    AdminProductPageComponent,
     
   ],
   imports: [
@@ -44,7 +54,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MenubarModule,
     CardModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    ToastModule,
+    DropdownModule
 
   ],
   exports: [

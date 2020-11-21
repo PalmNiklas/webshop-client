@@ -9,12 +9,11 @@ import { AuthenticationService } from '../services/authentication.service';
 export class AuthGuard implements CanActivate {
 
   constructor(private router: Router, private authService: AuthenticationService){}
-
+  success: Boolean;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const url = state.url;
-
       return this.checkIfLoggedIn(route, url)
   }
   canLoad(
@@ -25,13 +24,16 @@ export class AuthGuard implements CanActivate {
 
   checkIfLoggedIn(route: ActivatedRouteSnapshot, url: string): boolean | UrlTree{
     if(this.authService.currentUserValue){
-      const userRole = this.authService.getCurrentUserRole();
-      if(typeof route.data.role != "undefined" && route.data.role !== userRole){
-        this.router.navigate(['/']);
+
+      if(this.authService.isAuthorized(route.data.allowedRoles)){
+        this.router.parseUrl('url');
+        return true;
+      } else {
+        this.router.parseUrl('/');
         return false;
-      }else
-      return true;
+      }
     }
+    console.log(url);
     this.authService.redirectUrl = url
     return this.router.parseUrl('/login')
   }

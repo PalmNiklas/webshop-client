@@ -31,6 +31,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   login() {
+    console.log("Test");
     if (this.username && this.password) {
       const user = <User>(
         {
@@ -39,21 +40,14 @@ export class LoginFormComponent implements OnInit {
         }
       );
 
-       this.authService.login(user).subscribe()
-
-       if(this.authService.redirectUrl){
-        this.router.navigate([this.authService.redirectUrl])
-       }else {
-        this.router.navigate(["/"])
-       }
-     
-         
-         
-  
-       
-       
-       
-      }
+       this.authService.login(user).subscribe(data => {},error => {},() => {
+         if(this.authService.redirectUrl){
+          this.router.navigate([this.authService.redirectUrl])
+         }else {
+          this.router.navigate(["/"])
+         }
+       }) 
+    } 
   }
 
 }

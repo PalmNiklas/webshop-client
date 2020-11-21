@@ -16,10 +16,10 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 class UserControllerService extends __BaseService {
-  static readonly listUsingGET1Path = '/api/users';
-  static readonly createUsingPOST1Path = '/api/users';
+  static readonly listUsingGET2Path = '/api/users';
+  static readonly createUsingPOST2Path = '/api/users';
   static readonly loginUsingPOSTPath = '/api/users/login';
-  static readonly getUsingGET1Path = '/api/users/{id}';
+  static readonly getUsingGET3Path = '/api/users/{id}';
   static readonly updateUsingPUT1Path = '/api/users/{id}';
 
   constructor(
@@ -33,7 +33,7 @@ class UserControllerService extends __BaseService {
    * list
    * @return OK
    */
-  listUsingGET1Response(): __Observable<__StrictHttpResponse<Array<User>>> {
+  listUsingGET2Response(): __Observable<__StrictHttpResponse<Array<User>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -58,8 +58,8 @@ class UserControllerService extends __BaseService {
    * list
    * @return OK
    */
-  listUsingGET1(): __Observable<Array<User>> {
-    return this.listUsingGET1Response().pipe(
+  listUsingGET2(): __Observable<Array<User>> {
+    return this.listUsingGET2Response().pipe(
       __map(_r => _r.body as Array<User>)
     );
   }
@@ -69,7 +69,7 @@ class UserControllerService extends __BaseService {
    * @param user user
    * @return Created
    */
-  createUsingPOST1Response(user: User): __Observable<__StrictHttpResponse<User>> {
+  createUsingPOST2Response(user: User): __Observable<__StrictHttpResponse<User>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -96,8 +96,8 @@ class UserControllerService extends __BaseService {
    * @param user user
    * @return Created
    */
-  createUsingPOST1(user: User): __Observable<User> {
-    return this.createUsingPOST1Response(user).pipe(
+  createUsingPOST2(user: User): __Observable<User> {
+    return this.createUsingPOST2Response(user).pipe(
       __map(_r => _r.body as User)
     );
   }
@@ -145,7 +145,7 @@ class UserControllerService extends __BaseService {
    * @param id id
    * @return OK
    */
-  getUsingGET1Response(id: number): __Observable<__StrictHttpResponse<User>> {
+  getUsingGET3Response(id: number): __Observable<__StrictHttpResponse<User>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -172,8 +172,8 @@ class UserControllerService extends __BaseService {
    * @param id id
    * @return OK
    */
-  getUsingGET1(id: number): __Observable<User> {
-    return this.getUsingGET1Response(id).pipe(
+  getUsingGET3(id: number): __Observable<User> {
+    return this.getUsingGET3Response(id).pipe(
       __map(_r => _r.body as User)
     );
   }

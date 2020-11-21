@@ -41,7 +41,7 @@ export class CreateUserComponent implements OnInit {
   
  
 
-    this.userService.createUsingPOST1(user).subscribe(
+    this.userService.createUsingPOST2(user).subscribe(
       data => {},
       err => console.error(err),
       () => {
