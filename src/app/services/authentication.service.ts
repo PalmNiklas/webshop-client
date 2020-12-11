@@ -35,6 +35,7 @@ export class AuthenticationService {
             ))
     }
 
+
     isAuthorized(allowedRoles: number[]): boolean{
         if (allowedRoles == null || allowedRoles.length === 0){
             return true

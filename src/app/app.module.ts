@@ -17,6 +17,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast'
 import {DropdownModule} from 'primeng/dropdown';
+import {TableModule} from 'primeng/table';
 
 import {MessageService} from 'primeng/api';
 
@@ -27,6 +28,10 @@ import { ProductContainerComponent } from './components/product-container/produc
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { CreateCategoryComponent } from './components/create-category/create-category.component';
 import { AdminProductPageComponent } from './pages/admin-product-page/admin-product-page.component';
+import { ShopingCartComponent } from './components/shoping-cart/shoping-cart.component';
+import {InputNumberModule} from 'primeng/inputnumber';
+import { AdminOrderPageComponent } from './pages/admin-order-page/admin-order-page.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 
 @NgModule({
@@ -41,6 +46,9 @@ import { AdminProductPageComponent } from './pages/admin-product-page/admin-prod
     CreateProductComponent,
     CreateCategoryComponent,
     AdminProductPageComponent,
+    ShopingCartComponent,
+    AdminOrderPageComponent,
+    OrderListComponent,
     
   ],
   imports: [
@@ -56,7 +64,9 @@ import { AdminProductPageComponent } from './pages/admin-product-page/admin-prod
     MessagesModule,
     MessageModule,
     ToastModule,
-    DropdownModule
+    DropdownModule,
+    TableModule,
+    InputNumberModule
 
   ],
   exports: [

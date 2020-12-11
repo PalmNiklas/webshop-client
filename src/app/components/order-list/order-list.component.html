@@ -1,0 +1,24 @@
+<p-table [value]="orders">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Order Id</th>
+        <th>Order Date</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>User</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-order>
+      <tr (click)=onSelect()>
+        <td> {{order.id}} </td>
+        <td> {{order.orderDate}} </td>
+        <td> {{order.total}} </td>
+        <td> {{statuses[order.status -1].name}} </td>
+        <td> {{order.user}} </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p *ngFor="let status of statuses">
+      {{status.name}}
+  </p>

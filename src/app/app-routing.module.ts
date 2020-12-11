@@ -11,6 +11,7 @@ import { ProductContainerComponent } from './components/product-container/produc
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { LoggedInAuthGuard } from './auth/logged-in-auth.guard';
 import { AdminProductPageComponent } from './pages/admin-product-page/admin-product-page.component';
+import { AdminOrderPageComponent } from './pages/admin-order-page/admin-order-page.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,14 @@ const routes: Routes = [
   { 
     path: 'admin-product', 
     component: AdminProductPageComponent,
+    canActivate: [AuthGuard],
+    data:{
+      role: Role.Admin
+    }
+  },
+  { 
+    path: 'admin-orders', 
+    component: AdminOrderPageComponent,
     canActivate: [AuthGuard],
     data:{
       role: Role.Admin

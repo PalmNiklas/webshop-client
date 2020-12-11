@@ -16,11 +16,11 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 class UserControllerService extends __BaseService {
-  static readonly listUsingGET2Path = '/api/users';
-  static readonly createUsingPOST2Path = '/api/users';
+  static readonly listUsingGET5Path = '/api/users';
+  static readonly createUsingPOST4Path = '/api/users';
   static readonly loginUsingPOSTPath = '/api/users/login';
-  static readonly getUsingGET3Path = '/api/users/{id}';
-  static readonly updateUsingPUT1Path = '/api/users/{id}';
+  static readonly getUsingGET6Path = '/api/users/{id}';
+  static readonly updateUsingPUT3Path = '/api/users/{id}';
 
   constructor(
     config: __Configuration,
@@ -33,7 +33,7 @@ class UserControllerService extends __BaseService {
    * list
    * @return OK
    */
-  listUsingGET2Response(): __Observable<__StrictHttpResponse<Array<User>>> {
+  listUsingGET5Response(): __Observable<__StrictHttpResponse<Array<User>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -58,8 +58,8 @@ class UserControllerService extends __BaseService {
    * list
    * @return OK
    */
-  listUsingGET2(): __Observable<Array<User>> {
-    return this.listUsingGET2Response().pipe(
+  listUsingGET5(): __Observable<Array<User>> {
+    return this.listUsingGET5Response().pipe(
       __map(_r => _r.body as Array<User>)
     );
   }
@@ -69,7 +69,7 @@ class UserControllerService extends __BaseService {
    * @param user user
    * @return Created
    */
-  createUsingPOST2Response(user: User): __Observable<__StrictHttpResponse<User>> {
+  createUsingPOST4Response(user: User): __Observable<__StrictHttpResponse<User>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -96,8 +96,8 @@ class UserControllerService extends __BaseService {
    * @param user user
    * @return Created
    */
-  createUsingPOST2(user: User): __Observable<User> {
-    return this.createUsingPOST2Response(user).pipe(
+  createUsingPOST4(user: User): __Observable<User> {
+    return this.createUsingPOST4Response(user).pipe(
       __map(_r => _r.body as User)
     );
   }
@@ -145,7 +145,7 @@ class UserControllerService extends __BaseService {
    * @param id id
    * @return OK
    */
-  getUsingGET3Response(id: number): __Observable<__StrictHttpResponse<User>> {
+  getUsingGET6Response(id: number): __Observable<__StrictHttpResponse<User>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -172,15 +172,15 @@ class UserControllerService extends __BaseService {
    * @param id id
    * @return OK
    */
-  getUsingGET3(id: number): __Observable<User> {
-    return this.getUsingGET3Response(id).pipe(
+  getUsingGET6(id: number): __Observable<User> {
+    return this.getUsingGET6Response(id).pipe(
       __map(_r => _r.body as User)
     );
   }
 
   /**
    * update
-   * @param params The `UserControllerService.UpdateUsingPUT1Params` containing the following parameters:
+   * @param params The `UserControllerService.UpdateUsingPUT3Params` containing the following parameters:
    *
    * - `user`: user
    *
@@ -188,7 +188,7 @@ class UserControllerService extends __BaseService {
    *
    * @return OK
    */
-  updateUsingPUT1Response(params: UserControllerService.UpdateUsingPUT1Params): __Observable<__StrictHttpResponse<User>> {
+  updateUsingPUT3Response(params: UserControllerService.UpdateUsingPUT3Params): __Observable<__StrictHttpResponse<User>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -213,7 +213,7 @@ class UserControllerService extends __BaseService {
   }
   /**
    * update
-   * @param params The `UserControllerService.UpdateUsingPUT1Params` containing the following parameters:
+   * @param params The `UserControllerService.UpdateUsingPUT3Params` containing the following parameters:
    *
    * - `user`: user
    *
@@ -221,8 +221,8 @@ class UserControllerService extends __BaseService {
    *
    * @return OK
    */
-  updateUsingPUT1(params: UserControllerService.UpdateUsingPUT1Params): __Observable<User> {
-    return this.updateUsingPUT1Response(params).pipe(
+  updateUsingPUT3(params: UserControllerService.UpdateUsingPUT3Params): __Observable<User> {
+    return this.updateUsingPUT3Response(params).pipe(
       __map(_r => _r.body as User)
     );
   }
@@ -231,9 +231,9 @@ class UserControllerService extends __BaseService {
 module UserControllerService {
 
   /**
-   * Parameters for updateUsingPUT1
+   * Parameters for updateUsingPUT3
    */
-  export interface UpdateUsingPUT1Params {
+  export interface UpdateUsingPUT3Params {
 
     /**
      * user

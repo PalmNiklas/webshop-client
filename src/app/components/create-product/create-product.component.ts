@@ -35,7 +35,7 @@ this.loadCategories()
   createProduct() {
   
     
-    this.productService.createUsingPOST1(this.product).subscribe(
+    this.productService.createUsingPOST3(this.product).subscribe(
       data => { data => this.productId = data.id 
       },
       err => console.error(err),

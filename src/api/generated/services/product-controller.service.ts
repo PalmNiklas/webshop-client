@@ -16,10 +16,11 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 class ProductControllerService extends __BaseService {
-  static readonly listUsingGET1Path = '/api/products';
-  static readonly createUsingPOST1Path = '/api/products';
-  static readonly getUsingGET1Path = '/api/products/id/{id}';
-  static readonly getUsingGET2Path = '/api/products/{name}';
+  static readonly listUsingGET4Path = '/api/products';
+  static readonly createUsingPOST3Path = '/api/products';
+  static readonly listByCategoryUsingGETPath = '/api/products/cat/{categoryId}';
+  static readonly getUsingGET4Path = '/api/products/id/{id}';
+  static readonly getUsingGET5Path = '/api/products/{name}';
 
   constructor(
     config: __Configuration,
@@ -32,7 +33,7 @@ class ProductControllerService extends __BaseService {
    * list
    * @return OK
    */
-  listUsingGET1Response(): __Observable<__StrictHttpResponse<Array<Product>>> {
+  listUsingGET4Response(): __Observable<__StrictHttpResponse<Array<Product>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -57,8 +58,8 @@ class ProductControllerService extends __BaseService {
    * list
    * @return OK
    */
-  listUsingGET1(): __Observable<Array<Product>> {
-    return this.listUsingGET1Response().pipe(
+  listUsingGET4(): __Observable<Array<Product>> {
+    return this.listUsingGET4Response().pipe(
       __map(_r => _r.body as Array<Product>)
     );
   }
@@ -68,7 +69,7 @@ class ProductControllerService extends __BaseService {
    * @param product product
    * @return Created
    */
-  createUsingPOST1Response(product: Product): __Observable<__StrictHttpResponse<Product>> {
+  createUsingPOST3Response(product: Product): __Observable<__StrictHttpResponse<Product>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -95,9 +96,47 @@ class ProductControllerService extends __BaseService {
    * @param product product
    * @return Created
    */
-  createUsingPOST1(product: Product): __Observable<Product> {
-    return this.createUsingPOST1Response(product).pipe(
+  createUsingPOST3(product: Product): __Observable<Product> {
+    return this.createUsingPOST3Response(product).pipe(
       __map(_r => _r.body as Product)
+    );
+  }
+
+  /**
+   * listByCategory
+   * @param categoryId categoryId
+   * @return OK
+   */
+  listByCategoryUsingGETResponse(categoryId: number): __Observable<__StrictHttpResponse<Array<Product>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/api/products/cat/${encodeURIComponent(categoryId)}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<Product>>;
+      })
+    );
+  }
+  /**
+   * listByCategory
+   * @param categoryId categoryId
+   * @return OK
+   */
+  listByCategoryUsingGET(categoryId: number): __Observable<Array<Product>> {
+    return this.listByCategoryUsingGETResponse(categoryId).pipe(
+      __map(_r => _r.body as Array<Product>)
     );
   }
 
@@ -106,7 +145,7 @@ class ProductControllerService extends __BaseService {
    * @param id id
    * @return OK
    */
-  getUsingGET1Response(id: number): __Observable<__StrictHttpResponse<Product>> {
+  getUsingGET4Response(id: number): __Observable<__StrictHttpResponse<Product>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -133,8 +172,8 @@ class ProductControllerService extends __BaseService {
    * @param id id
    * @return OK
    */
-  getUsingGET1(id: number): __Observable<Product> {
-    return this.getUsingGET1Response(id).pipe(
+  getUsingGET4(id: number): __Observable<Product> {
+    return this.getUsingGET4Response(id).pipe(
       __map(_r => _r.body as Product)
     );
   }
@@ -144,7 +183,7 @@ class ProductControllerService extends __BaseService {
    * @param name name
    * @return OK
    */
-  getUsingGET2Response(name: string): __Observable<__StrictHttpResponse<Product>> {
+  getUsingGET5Response(name: string): __Observable<__StrictHttpResponse<Product>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -171,8 +210,8 @@ class ProductControllerService extends __BaseService {
    * @param name name
    * @return OK
    */
-  getUsingGET2(name: string): __Observable<Product> {
-    return this.getUsingGET2Response(name).pipe(
+  getUsingGET5(name: string): __Observable<Product> {
+    return this.getUsingGET5Response(name).pipe(
       __map(_r => _r.body as Product)
     );
   }

@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration';
 
 import { CategoryControllerService } from './services/category-controller.service';
+import { OrderItemControllerService } from './services/order-item-controller.service';
+import { OrderStatusControllerService } from './services/order-status-controller.service';
+import { OrderControllerService } from './services/order-controller.service';
 import { ProductControllerService } from './services/product-controller.service';
 import { UserControllerService } from './services/user-controller.service';
 
@@ -21,6 +24,9 @@ import { UserControllerService } from './services/user-controller.service';
   providers: [
     ApiConfiguration,
     CategoryControllerService,
+    OrderItemControllerService,
+    OrderStatusControllerService,
+    OrderControllerService,
     ProductControllerService,
     UserControllerService
   ],

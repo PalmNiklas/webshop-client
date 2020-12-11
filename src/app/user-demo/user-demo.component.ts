@@ -20,7 +20,7 @@ export class UserDemoComponent implements OnInit {
   }
 
   getUsers(){
-    this.userService.listUsingGET2().subscribe(
+    this.userService.listUsingGET5().subscribe(
       data => {this.users = data},
       err => console.error(err),
       () => console.log(this.users)

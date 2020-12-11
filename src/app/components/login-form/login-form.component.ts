@@ -31,7 +31,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   login() {
-    console.log("Test");
     if (this.username && this.password) {
       const user = <User>(
         {
